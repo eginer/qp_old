@@ -1,0 +1,40 @@
+// ['MRCC_CAS_general_first_order']
+digraph {
+	MRCC_CAS_general_first_order [fontcolor=red]
+		MRCC_CAS_general_first_order -> Perturbation
+		Perturbation -> Properties
+		Properties -> Determinants
+		Determinants -> Integrals_Monoelec
+		Integrals_Monoelec -> MO_Basis
+		MO_Basis -> AO_Basis
+		AO_Basis -> Nuclei
+		Nuclei -> Ezfio_files
+		Nuclei -> Utils
+		MO_Basis -> Electrons
+		Electrons -> Ezfio_files
+		Integrals_Monoelec -> Pseudo
+		Pseudo -> Nuclei
+		Determinants -> Integrals_Bielec
+		Integrals_Bielec -> Pseudo
+		Integrals_Bielec -> Bitmask
+		Bitmask -> MO_Basis
+		Perturbation -> Hartree_Fock
+		Hartree_Fock -> Integrals_Bielec
+		Hartree_Fock -> MOGuess
+		MOGuess -> Integrals_Monoelec
+		MRCC_CAS_general_first_order -> Selectors_full
+		Selectors_full -> Determinants
+		Selectors_full -> Hartree_Fock
+		MRCC_CAS_general_first_order -> Generators_full
+		Generators_full -> Determinants
+		Generators_full -> Hartree_Fock
+		MRCC_CAS_general_first_order -> Psiref_CAS
+		Psiref_CAS -> Psiref_Utils
+		Psiref_Utils -> Determinants
+		MRCC_CAS_general_first_order -> MRCC_Utils_general_first_order
+		MRCC_Utils_general_first_order -> Perturbation
+		MRCC_Utils_general_first_order -> Selectors_full
+		MRCC_Utils_general_first_order -> Generators_full
+		MRCC_Utils_general_first_order -> Psiref_Utils
+		MRCC_Utils_general_first_order -> Psiref_CAS
+}

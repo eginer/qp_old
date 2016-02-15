@@ -1,0 +1,40 @@
+// ['CAS_effective_Hamiltonian_OVB']
+digraph {
+	CAS_effective_Hamiltonian_OVB [fontcolor=red]
+		CAS_effective_Hamiltonian_OVB -> Dressed_Ref_Hamiltonian
+		Dressed_Ref_Hamiltonian -> MRCC_Utils
+		MRCC_Utils -> Perturbation
+		Perturbation -> Properties
+		Properties -> Determinants
+		Determinants -> Integrals_Monoelec
+		Integrals_Monoelec -> MO_Basis
+		MO_Basis -> AO_Basis
+		AO_Basis -> Nuclei
+		Nuclei -> Ezfio_files
+		Nuclei -> Utils
+		MO_Basis -> Electrons
+		Electrons -> Ezfio_files
+		Integrals_Monoelec -> Pseudo
+		Pseudo -> Nuclei
+		Determinants -> Integrals_Bielec
+		Integrals_Bielec -> Pseudo
+		Integrals_Bielec -> Bitmask
+		Bitmask -> MO_Basis
+		Perturbation -> Hartree_Fock
+		Hartree_Fock -> Integrals_Bielec
+		Hartree_Fock -> MOGuess
+		MOGuess -> Integrals_Monoelec
+		MRCC_Utils -> Selectors_full
+		Selectors_full -> Determinants
+		Selectors_full -> Hartree_Fock
+		MRCC_Utils -> Generators_full
+		Generators_full -> Determinants
+		Generators_full -> Hartree_Fock
+		MRCC_Utils -> Psiref_Utils
+		Psiref_Utils -> Determinants
+		MRCC_Utils -> Psiref_CAS
+		Psiref_CAS -> Psiref_Utils
+		CAS_effective_Hamiltonian_OVB -> Psiref_CAS
+		CAS_effective_Hamiltonian_OVB -> OVB
+		OVB -> Psiref_CAS
+}
